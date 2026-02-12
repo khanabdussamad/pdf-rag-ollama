@@ -12,9 +12,9 @@ from app.core.retriever import retriever
 
 router = APIRouter()
 
+
 @router.post("/upload")
 async def upload_files(files: List[UploadFile] = File(...)):
-
     os.makedirs(DATA_DIR, exist_ok=True)
     results = []
 
@@ -40,6 +40,7 @@ async def upload_files(files: List[UploadFile] = File(...)):
         })
 
     return {"files": results}
+
 
 @router.delete("/remove")
 async def remove_document(file_name: str = Body(...)):

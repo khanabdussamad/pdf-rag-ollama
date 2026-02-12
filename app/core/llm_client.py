@@ -1,5 +1,7 @@
-import requests
 import json
+
+import requests
+
 from app.config import (
     OLLAMA_GENERATE_ENDPOINT,
     LLM_MODEL,
@@ -7,8 +9,8 @@ from app.config import (
     TEMPERATURE
 )
 
-def stream_answer(context_docs, question):
 
+def stream_answer(context_docs, question):
     context = "\n\n".join(
         [f"[{doc['file_name']}] {doc['text']}" for doc in context_docs]
     )

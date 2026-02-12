@@ -8,9 +8,9 @@ from app.core.retriever import retriever
 
 router = APIRouter()
 
+
 @router.post("/ask")
 async def ask(question: str):
-
     start_time = time.time()
 
     docs = retriever.search(question)

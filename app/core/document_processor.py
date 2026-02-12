@@ -1,5 +1,7 @@
 from pypdf import PdfReader
+
 from app.config import CHUNK_SIZE, CHUNK_OVERLAP
+
 
 def extract_text(file_path: str) -> str:
     reader = PdfReader(file_path)
@@ -7,6 +9,7 @@ def extract_text(file_path: str) -> str:
     for page in reader.pages:
         text += page.extract_text() or ""
     return text
+
 
 def chunk_text(text: str):
     chunks = []

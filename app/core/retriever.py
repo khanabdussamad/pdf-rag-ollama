@@ -1,7 +1,9 @@
+import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-import numpy as np
+
 from app.config import TOP_K
+
 
 class Retriever:
 
@@ -41,5 +43,6 @@ class Retriever:
         similarities = cosine_similarity(query_vec, self.matrix)
         top_indices = np.argsort(similarities[0])[-TOP_K:][::-1]
         return [self.documents[i] for i in top_indices]
+
 
 retriever = Retriever()
